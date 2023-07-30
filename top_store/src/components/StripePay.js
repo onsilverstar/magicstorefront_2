@@ -13,7 +13,7 @@ const [paymentId, setpaymentId] = useState("");
 useEffect(()=> {
   let data = {total: props.cost}
   console.log(data)
-  fetch("http://44.212.67.79/createpayment",
+  fetch("https://api.mtandauza.com/createpayment",
   {
     method: "POST",
     headers: {

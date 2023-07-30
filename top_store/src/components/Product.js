@@ -15,6 +15,7 @@ function Product(props)
                     <Card.Img variant="top" src={props.data["image"]}/>
                     </Link>
                     <Card.Text>
+                    $
                     {props.data["price"]}
                     </Card.Text>
                     </Card.Body>

@@ -67,7 +67,7 @@ function ShippingBilling(props) {
     }
     const createOrder = () =>{
         const data = {"items": props.cartItems, "cost": props.cost, access: localStorage.getItem("auth_token")}
-        fetch("http://44.212.67.79/createorder",
+        fetch("https://api.mtandauza.com/createorder",
         {
           method: "POST",
           headers: {

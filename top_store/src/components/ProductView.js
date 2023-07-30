@@ -4,6 +4,8 @@ import { Card } from 'react-bootstrap'
 import ShoppingCart from "./ShoppingCart";
 import { Form } from "react-bootstrap"
 import {Button} from "react-bootstrap";
+import { Link } from 'react-router-dom';
+
 
 const ProductView = (props) =>
 {
@@ -19,27 +21,14 @@ const ProductView = (props) =>
     let [items, setItems] = useState(JSON.parse(localStorage.getItem("orderitems")))
     let [Cost, setCost] = useState(getCost())
     useEffect(() => {
+        getCost()
+        getItemsNo()
         props.func1(Count)
         props.func2(items)
         props.funcost(Cost)
         
       }, [Count, items, Cost]);
    
-
-    
-// function handleLocalStorage(item)
-// {
-//     localStorage.setItem("test", JSON.stringify([]))
-//     let test = JSON.parse(localStorage.getItem("test"))
-//     test.push(OrderItem)
-//     console.log(OrderItem)
-//     localStorage.setItem("test", JSON.stringify(test))
-    
-
-// }
-// function saveShoppingcart(){
-//     handleLocalStorage(OrderItem)
-// }
 const handleOnChange = (e)=>
 {
     setOrderItem({
@@ -111,15 +100,21 @@ const handleSubmit=(e)=>{
                 </div>
                 <div>
                     <Form>
-                        <Form.Group className="mb-3" controlId="formBasicEmail" style={{ width: '15rem'}}>
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>Quantity</Form.Label>
-                            <Form.Control type="number" placeholder="Enter quantity" value={OrderItem.quantity} max={params.quantity} min={0} onChange={(e)=>handleOnChange(e)} />
+                            <Form.Control type="number" placeholder="Enter quantity" value={OrderItem.quantity} max={params.quantity} min={0} onChange={(e)=>handleOnChange(e)} style={{ width: '8rem'}}/>
                         </Form.Group>
                         <Button variant="primary" type="submit" onClick={(e)=>handleSubmit(e)}>
-                            Add to Cart
+                            <h6>+Add</h6>
                         </Button>
                     </Form>
                 </div>
+                <div style={{margin:"2rem", display:"block"}}>
+      <Link to={"/"}>
+        <Button>Continue Shopping</Button>
+      </Link>
+      
+    </div>
         </div>
     )
 }

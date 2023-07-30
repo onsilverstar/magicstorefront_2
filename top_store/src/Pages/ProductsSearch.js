@@ -1,15 +1,15 @@
 import React, {useState, useEffect} from 'react'
-import Product from './Product';
-import ProductsPagination from './Pagination';
+import Product from '../components/Product';
+import ProductsPagination from '../components/Pagination';
 
-function Products(props)
+function ProductsSearch(props)
     {
         let [items, setItems] = useState([])
         let [search, setSearch] = useState()
         useEffect(()=> {
             getItems()
             setSearch(props.search)
-        },[])
+        })
 
         let getItems = async () => {
             let response
@@ -25,7 +25,7 @@ function Products(props)
                     headers: {
                       'Content-Type': 'application/json;charset=utf-8'
                     },
-                    body: JSON.stringify({search: "shoes"})
+                    body: JSON.stringify({search: search})
                 })
             }
             let data = await response.json()
@@ -40,4 +40,4 @@ function Products(props)
             </div>
                )
                }
-export default Products
+export default ProductsSearch
