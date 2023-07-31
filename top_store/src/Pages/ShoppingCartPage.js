@@ -69,9 +69,9 @@ function ShoppingCartPage(props) {
             items.map(
                 (item)=><tr>
                 <td>{count++}</td>
-                <td>{item.price}</td>
+                <td>${item.price}</td>
                 <td>{item.quantity}</td>
-                <td>{item.price*item.quantity}</td>
+                <td>${item.price*item.quantity}</td>
                 <td><button onClick={e=>handleSubmit(e, item)}>Remove</button></td>
             </tr>
             )
@@ -81,7 +81,7 @@ function ShoppingCartPage(props) {
             <td></td>
             <td></td>
             <td></td>
-            <td>{props.cost}</td>
+            <td>${props.cost}</td>
         </tr>
       </tbody>
     </Table>

@@ -65,13 +65,15 @@ function App(props) {
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/search/:search" element={<Search/>}/>
-          <Route exact path="/product/:id/:quantity/:image/:price"  
+          <Route path="/product/:id/:quantity/:image/:price"  
           element={<ProductView func1={getCartCount} func2={getCartItems} funcost={getCartCost}/>}/>
           <Route path="/shoppingcartview" element={<ShoppingCartPage cartItems={cartItems} 
           cost={cartCost} func1={getCartCount} 
           func2={getCartItems} funcost={getCartCost}/>}/>
           <Route path="/shippingbilling" element={<ShippingBilling cartItems={cartItems} cost={cartCost}/>}/>
           <Route path="/stripepayment/:order_id" element={<StripePay cost={cartCost}/>}/>
+          <Route exact path="/search/:search/product/:id/:quantity/:image/:price"  
+          element={<ProductView func1={getCartCount} func2={getCartItems} funcost={getCartCost}/>}/>
         </Routes>
         <Footer/>     
       </div>

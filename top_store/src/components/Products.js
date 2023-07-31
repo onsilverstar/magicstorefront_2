@@ -15,11 +15,11 @@ function Products(props)
             let response
             if(props.search == null)
             {
-                response = await fetch("http://127.0.0.1:8000/")
+                response = await fetch("https://api.mtandauza.com/")
             }
             else
             {
-                response = await fetch("http://127.0.0.1:8000/search",
+                response = await fetch("https://api.mtandauza.com/search",
                 {
                     method: "POST",
                     headers: {

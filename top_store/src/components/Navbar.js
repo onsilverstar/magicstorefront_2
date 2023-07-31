@@ -9,9 +9,11 @@ import ShoppingCart from './ShoppingCart';
 import SignInModal from './SignIn';
 import CreateUserModal from './CreateUserModal';
 import { useNavigate } from "react-router-dom"; 
+import { useState } from 'react';
 
 const NavigationBar = (props) => {
 const navigate = useNavigate()
+const [search, setSearch] = useState()
 const handleSubmit = (e)=>
   {
     if (e.key == "Enter")
@@ -19,6 +21,12 @@ const handleSubmit = (e)=>
       e.preventDefault()
       navigate(`/search/${e.target.value}`)
     }
+  }
+  const handleChange = (e)=>
+  {
+      e.preventDefault()
+      setSearch(e.target.value)
+      
   }
   console.log(JSON.stringify(props))
 
@@ -38,13 +46,15 @@ const handleSubmit = (e)=>
                 <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
               </NavDropdown>
               </Nav> */}
-              <Form className="d-flex">
-              <Form.Control
+              <Form className="d-flex" style={{justifyContent: "space-around",}}>
+              <Form.Control style={{width: "350",}}
                 type="search"
                 placeholder="Search"
                 className="me-2"
                 aria-label="Search"
                 onKeyDown={e=>handleSubmit(e)}
+                onChange={e=>handleChange(e)}
+                value={search}
               />
             </Form>
             <NavDropdown title="Sign In" id="basic-nav-dropdown">
